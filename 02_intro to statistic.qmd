@@ -1,0 +1,10 @@
+# Intro to Statistic
+ 
+In this part of book we will learn how to implement nonparametric test in r and python. Next is the following subject we will learn in this part.
+
+1. Descriptive Statistics
+2. Mean Test
+3. Variance Test
+4. Correlation
+5. Regression 
+6. Anova 

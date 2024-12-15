@@ -289,6 +289,17 @@
     ]
   },
   {
+    "objectID": "02_intro to statistic/02_01_descriptive statistics.html",
+    "href": "02_intro to statistic/02_01_descriptive statistics.html",
+    "title": "7  Descriptive Statistics",
+    "section": "",
+    "text": "7.1 Mean\nThe mean , often represented by the symbol \\(\\bar{x}\\), is a measure of central tendency that provides the average value of a set of numbers. It is calculated by summing up all the individual values in the dataset and dividing the total by the number of values. The formula for the mean is given by:\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\]\nwhere \\(\\bar{x}\\) is the mean, \\(n\\) is the total number of observations, and \\(x_{i}\\) represents each individual observation in the dataset.",
+    "crumbs": [
+      "02_intro to statistics.qmd",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Statistics</span>"
+    ]
+  },
+  {
     "objectID": "10_nonparametric analysis.html",
     "href": "10_nonparametric analysis.html",
     "title": "Nonparametric Analysis",
@@ -301,56 +312,122 @@
   {
     "objectID": "10_nonparametric analysis/10_01_one sample test.html",
     "href": "10_nonparametric analysis/10_01_one sample test.html",
-    "title": "7  One Sample Nonparametric Test",
+    "title": "13  One Sample Nonparametric Test",
     "section": "",
-    "text": "7.1 Runs Test",
+    "text": "13.1 Runs Test",
     "crumbs": [
       "Nonparametric Analysis",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
     ]
   },
   {
     "objectID": "10_nonparametric analysis/10_01_one sample test.html#runs-test",
     "href": "10_nonparametric analysis/10_01_one sample test.html#runs-test",
-    "title": "7  One Sample Nonparametric Test",
+    "title": "13  One Sample Nonparametric Test",
     "section": "",
     "text": "RPython\n\n\n\nlibrary(DescTools)\nx &lt;- c(1.83,  0.50,  1.62,  2.48, 1.68, 1.88, 1.55, 3.06, 1.30)\nSignTest(x,mu=4)\n\n\n    One-sample Sign-Test\n\ndata:  x\nS = 0, number of differences = 9, p-value = 0.003906\nalternative hypothesis: true median is not equal to 4\n96.1 percent confidence interval:\n 1.30 2.48\nsample estimates:\nmedian of the differences \n                     1.68 \n\n\n\n\n\nimport statsmodels.api as sm\n\n# Sample data\ndata = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]\n\n# Perform the runs test\nz_stat, p_value = sm.stats.runstest_1samp(data, cutoff='median')\n\nprint('Z-statistic:', z_stat)\n\nZ-statistic: -3.212862759814378\n\nprint('p-value:', p_value)\n\np-value: 0.0013141907025215876",
     "crumbs": [
       "Nonparametric Analysis",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
     ]
   },
   {
     "objectID": "10_nonparametric analysis/10_01_one sample test.html#sign-test",
     "href": "10_nonparametric analysis/10_01_one sample test.html#sign-test",
-    "title": "7  One Sample Nonparametric Test",
-    "section": "7.2 Sign Test",
-    "text": "7.2 Sign Test\n\nRPython\n\n\n\nSignTest(x,mu=4)\n\n\n    One-sample Sign-Test\n\ndata:  x\nS = 0, number of differences = 9, p-value = 0.003906\nalternative hypothesis: true median is not equal to 4\n96.1 percent confidence interval:\n 1.30 2.48\nsample estimates:\nmedian of the differences \n                     1.68 \n\n\n\n\n\nimport statsmodels\nimport numpy as np\n\ndata = [4, 5, 6, 5, 3, 4, 2, 7, 6, 5, 4, 3, 8, 8, 9, 4, 6, 7, 2, 5, 6]\nmu0 = 4\nz_stat, p_value = statsmodels.stats.descriptivestats.sign_test(data, mu0)\n\nprint('Z-statistic:', z_stat)\n\nZ-statistic: 4.5\n\nprint('p-value:', p_value)\n\np-value: 0.049041748046875",
+    "title": "13  One Sample Nonparametric Test",
+    "section": "13.2 Sign Test",
+    "text": "13.2 Sign Test\n\nRPython\n\n\n\nSignTest(x,mu=4)\n\n\n    One-sample Sign-Test\n\ndata:  x\nS = 0, number of differences = 9, p-value = 0.003906\nalternative hypothesis: true median is not equal to 4\n96.1 percent confidence interval:\n 1.30 2.48\nsample estimates:\nmedian of the differences \n                     1.68 \n\n\n\n\n\nimport statsmodels\nimport numpy as np\n\ndata = [4, 5, 6, 5, 3, 4, 2, 7, 6, 5, 4, 3, 8, 8, 9, 4, 6, 7, 2, 5, 6]\nmu0 = 4\nz_stat, p_value = statsmodels.stats.descriptivestats.sign_test(data, mu0)\n\nprint('Z-statistic:', z_stat)\n\nZ-statistic: 4.5\n\nprint('p-value:', p_value)\n\np-value: 0.049041748046875",
     "crumbs": [
       "Nonparametric Analysis",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
     ]
   },
   {
     "objectID": "10_nonparametric analysis/10_01_one sample test.html#wilcoxon-test",
     "href": "10_nonparametric analysis/10_01_one sample test.html#wilcoxon-test",
-    "title": "7  One Sample Nonparametric Test",
-    "section": "7.3 Wilcoxon Test",
-    "text": "7.3 Wilcoxon Test\n\nRPython\n\n\n\nwilcox.test(x,mu=3)\n\n\n    Wilcoxon signed rank exact test\n\ndata:  x\nV = 1, p-value = 0.007812\nalternative hypothesis: true location is not equal to 3\n\n\n\n\n\nimport numpy as np\nfrom scipy.stats import wilcoxon as wil\n\nsample = [4, 5, 6, 5, 3, 4, 2, 7, 6, 5, 4, 3, 8, 8, 9, 4, 6, 7, 2, 5, 6]\nsample = np.array(sample)\nmed0 = 5\n\nW, p = wil(sample - med0, correction = False, mode = 'approx')\n\nprint(\"W:\",W)\n\nW: 68.0\n\nprint(\"p-value:\",p)\n\np-value: 0.6830049469967838",
+    "title": "13  One Sample Nonparametric Test",
+    "section": "13.3 Wilcoxon Test",
+    "text": "13.3 Wilcoxon Test\n\nRPython\n\n\n\nwilcox.test(x,mu=3)\n\n\n    Wilcoxon signed rank exact test\n\ndata:  x\nV = 1, p-value = 0.007812\nalternative hypothesis: true location is not equal to 3\n\n\n\n\n\nimport numpy as np\nfrom scipy.stats import wilcoxon as wil\n\nsample = [4, 5, 6, 5, 3, 4, 2, 7, 6, 5, 4, 3, 8, 8, 9, 4, 6, 7, 2, 5, 6]\nsample = np.array(sample)\nmed0 = 5\n\nW, p = wil(sample - med0, correction = False, mode = 'approx')\n\nprint(\"W:\",W)\n\nW: 68.0\n\nprint(\"p-value:\",p)\n\np-value: 0.6830049469967838",
     "crumbs": [
       "Nonparametric Analysis",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
     ]
   },
   {
     "objectID": "10_nonparametric analysis/10_01_one sample test.html#binomial-test",
     "href": "10_nonparametric analysis/10_01_one sample test.html#binomial-test",
-    "title": "7  One Sample Nonparametric Test",
-    "section": "7.4 Binomial Test",
-    "text": "7.4 Binomial Test\n\nRPython\n\n\n\nbinom.test(682, 682 + 243, p = 0.2,alternative = 'greater')\n\n\n    Exact binomial test\n\ndata:  682 and 682 + 243\nnumber of successes = 682, number of trials = 925, p-value &lt; 2.2e-16\nalternative hypothesis: true probability of success is greater than 0.2\n95 percent confidence interval:\n 0.7124129 1.0000000\nsample estimates:\nprobability of success \n             0.7372973 \n\n\n\n\n\nfrom scipy.stats import binomtest\nresult = binomtest(682, n=682 + 243, p=0.2, alternative='greater')\nprint(\"probability of success:\",result.statistic)\n\nprobability of success: 0.7372972972972973\n\nprint(\"p-value:\",result.pvalue)\n\np-value: 4.033798210035244e-271",
+    "title": "13  One Sample Nonparametric Test",
+    "section": "13.4 Binomial Test",
+    "text": "13.4 Binomial Test\n\nRPython\n\n\n\nbinom.test(682, 682 + 243, p = 0.2,alternative = 'greater')\n\n\n    Exact binomial test\n\ndata:  682 and 682 + 243\nnumber of successes = 682, number of trials = 925, p-value &lt; 2.2e-16\nalternative hypothesis: true probability of success is greater than 0.2\n95 percent confidence interval:\n 0.7124129 1.0000000\nsample estimates:\nprobability of success \n             0.7372973 \n\n\n\n\n\nfrom scipy.stats import binomtest\nresult = binomtest(682, n=682 + 243, p=0.2, alternative='greater')\nprint(\"probability of success:\",result.statistic)\n\nprobability of success: 0.7372972972972973\n\nprint(\"p-value:\",result.pvalue)\n\np-value: 4.033798210035244e-271",
     "crumbs": [
       "Nonparametric Analysis",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>One Sample Nonparametric Test</span>"
+    ]
+  },
+  {
+    "objectID": "02_intro to statistic/02_01_descriptive statistics.html#mean-1",
+    "href": "02_intro to statistic/02_01_descriptive statistics.html#mean-1",
+    "title": "7  Descriptive Statistics",
+    "section": "8.1 Mean",
+    "text": "8.1 Mean\n\nRPython\n\n\n\nmean(x)\n\n[1] 3\n\n\n\n\n\nstatistics.mean(x)\n\n3",
+    "crumbs": [
+      "02_intro to statistics.qmd",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "02_intro to statistic/02_01_descriptive statistics.html#variance",
+    "href": "02_intro to statistic/02_01_descriptive statistics.html#variance",
+    "title": "7  Descriptive Statistics",
+    "section": "7.2 Variance",
+    "text": "7.2 Variance\nThe variance is a measure of spread of the data. It is defined as the average of the squared differences from the mean. It is calculated by summing up all the squared differences from the mean, and dividing the total by the number of observations for the population variance and the number of observations minus one for the sample variance. The formula for the population and sample variance is given by:\nPopulation Variance \\[\\sigma^2 = \\frac{1}{n}\\sum_{i=1}^{n}(x_{i} - \\bar{x})^2\\]\nSample Variance \\[s^2 = \\frac{1}{n-1}\\sum_{i=1}^{n}(x_{i} - \\bar{x})^2\\]\nwhere \\(\\sigma^2\\) is the population variance, \\(s^2\\) is the sample variance, \\(n\\) is the total number of observations, \\(\\bar{x}\\) is the mean, and \\(x_{i}\\) represents each individual observation in the dataset.\n\nRPython\n\n\n\nvar(x) %&gt;% print()\n\n[1] 1.666667\n\n\n\n\n\nprint(statistics.variance(x))\n\n1.6666666666666667",
+    "crumbs": [
+      "02_intro to statistics.qmd",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "02_intro to statistic/02_01_descriptive statistics.html#median",
+    "href": "02_intro to statistic/02_01_descriptive statistics.html#median",
+    "title": "7  Descriptive Statistics",
+    "section": "7.3 Median",
+    "text": "7.3 Median\nThe median is a measure of central tendency in a set of numbers. It represents the middle value when the data is arranged in ascending or descending order. If there’s an even number of data points, the median is the average of the two middle values.\n\\[\\text{Median} = \\begin{cases}\n\\frac{x_{n/2} + x_{n/2+1}}{2} & \\text{if n is even} \\\\\nx_{(n+1)/2} & \\text{if n is odd}\n\\end{cases}\\]\nwhere \\(x_{i}\\) represents the \\(i\\)th value in the dataset and \\(n\\) is the number of observations. Here is the fuction for R and Python to calculate the median\n\nRPython\n\n\n\nmedian(x)\n\n[1] 3\n\n\n\n\n\nstatistics.median(x)\n\n3\n\n\n\n\n\n\nRPython\n\n\n\nmax(x)\n\n[1] 5\n\n\n\n\n\nmax(x)\n\n5\n\n\n\n\n\n\nRPython\n\n\n\nmin(x)\n\n[1] 1\n\n\n\n\n\nmin(x)\n\n1",
+    "crumbs": [
+      "02_intro to statistics.qmd",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "02_intro to statistic/02_01_descriptive statistics.html#range",
+    "href": "02_intro to statistic/02_01_descriptive statistics.html#range",
+    "title": "7  Descriptive Statistics",
+    "section": "7.4 Range",
+    "text": "7.4 Range\n\nRPython\n\n\n\nrange(x)\n\n[1] 1 5\n\n\n\n\n\nmax(x)-min(x)\n\n4\n\n\n\n\n\n\nRPython\n\n\n\n#### 3rd Quantile\nquantile(x,0.75)\n\n75% \n3.5 \n\n#### 1st Quantile\nquantile(x,0.75)\n\n75% \n3.5 \n\n\n\n\n\n\n\n\n\nRPython\n\n\n\nlibrary(DescTools)\nSkew(x)\n\n[1] 0\n\n\n\n\n\n\n\n\n\nRPython\n\n\n\nKurt(x)\n\n[1] -1.251429\n\n\n\n\n\n\n\n\n\nRPython\n\n\n\nDesc(x,plotit = F)\n\n────────────────────────────────────────────────────────────────────────────── \nx (numeric)\n\n  length       n    NAs  unique    0s  mean  meanCI'\n       7       7      0       5     0  3.00    1.81\n          100.0%   0.0%          0.0%          4.19\n                                                   \n     .05     .10    .25  median   .75   .90     .95\n    1.30    1.60   2.50    3.00  3.50  4.40    4.70\n                                                   \n   range      sd  vcoef     mad   IQR  skew    kurt\n    4.00    1.29   0.43    1.48  1.00  0.00   -1.25\n                                                   \n\n   value  freq   perc  cumfreq  cumperc\n1      1     1  14.3%        1    14.3%\n2      2     1  14.3%        2    28.6%\n3      3     3  42.9%        5    71.4%\n4      4     1  14.3%        6    85.7%\n5      5     1  14.3%        7   100.0%\n\n' 95%-CI (classic)",
+    "crumbs": [
+      "02_intro to statistics.qmd",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "02_intro to statistic/02_04_correlation.html",
+    "href": "02_intro to statistic/02_04_correlation.html",
+    "title": "R and Python Coding Handbook for Undergraduate Statistic",
+    "section": "",
+    "text": "import statistics\nx = [1,2,3,3,3,4,5]\n\n\nprint(statistics.mean(x))\n\n3\n\n\n\n1+2\n\n[1] 3",
+    "crumbs": [
+      "02_intro to statistics.qmd",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>02_04_correlation.html</span>"
+    ]
+  },
+  {
+    "objectID": "02_intro to statistic/02_01_descriptive statistics.html#mean",
+    "href": "02_intro to statistic/02_01_descriptive statistics.html#mean",
+    "title": "7  Descriptive Statistics",
+    "section": "",
+    "text": "RPython\n\n\n\nmean(x) %&gt;%  print()\n\n[1] 3\n\n\n\n\n\nprint(statistics.mean(x))\n\n3",
+    "crumbs": [
+      "02_intro to statistics.qmd",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Descriptive Statistics</span>"
     ]
   }
 ]

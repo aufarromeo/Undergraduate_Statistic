@@ -1,0 +1,270 @@
+# Descriptive Statistics
+
+Here we are going to show how to do descrptive statistics in r and python
+
+```{r}
+#| echo: false
+#| warning: false
+#| output: false
+library(reticulate)
+library(tidyverse)
+reticulate::use_condaenv('andat')
+```
+
+::: {.panel-tabset group="language"}
+#### R
+
+Data for R
+
+```{r}
+x <- c(1,2,3,3,3,4,5)
+print(x)
+```
+
+#### Python
+
+Data for Python
+
+```{python}
+import statistics 
+x = [1,2,3,3,3,4,5]
+print(x)
+```
+:::
+
+## Mean
+
+The mean , often represented by the symbol $\bar{x}$, is a measure of central tendency that provides the average value of a set of numbers. It is calculated by summing up all the individual values in the dataset and dividing the total by the number of values. The formula for the mean is given by:
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
+
+where $\bar{x}$ is the mean, $n$ is the total number of observations, and $x_{i}$ represents each individual observation in the dataset.
+
+::: {.panel-tabset group="language"}
+#### R
+
+```{r}
+mean(x) %>%  print()
+```
+
+#### Python
+
+```{python}
+
+print(statistics.mean(x))
+
+```
+:::
+
+## Variance
+
+The variance is a measure of spread of the data. It is defined as the average of the squared differences from the mean. It is calculated by summing up all the squared differences from the mean, and dividing the total by the number of observations for the population variance and the number of observations minus one for the sample variance. The formula for the population and sample variance is given by:
+
+**Population Variance** $$\sigma^2 = \frac{1}{n}\sum_{i=1}^{n}(x_{i} - \bar{x})^2$$
+
+**Sample Variance** $$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_{i} - \bar{x})^2$$
+
+where $\sigma^2$ is the population variance, $s^2$ is the sample variance, $n$ is the total number of observations, $\bar{x}$ is the mean, and $x_{i}$ represents each individual observation in the dataset.
+
+::: {.panel-tabset group="language"}
+#### R
+
+```{r}
+var(x) %>% print()
+```
+
+#### Python
+
+```{python}
+print(statistics.variance(x))
+```
+:::
+
+## Median
+
+The median is a measure of central tendency in a set of numbers. It represents the **middle value** when the data is arranged in ascending or descending order. If there's an even number of data points, the median is the average of the two middle values.
+
+$$\text{Median} = \begin{cases}\frac{x_{n/2} + x_{n/2+1}}{2} & \text{if n is even} \\ x_{(n+1)/2} & \text{if n is odd} \end{cases}$$
+
+where $x_{i}$ represents the $i$th value in the dataset and $n$ is the number of observations. Here is the fuction for R and Python to calculate the median. Here is the code for calculating median in R and Python
+
+::: {.panel-tabset group="language"}
+#### R
+
+Code for calculating median in R
+
+```{r}
+median(x)
+```
+
+#### Python
+
+Codeword for calculating median in Python
+
+```{python}
+statistics.median(x)
+```
+:::
+
+## Max and Min
+
+**Max** the maximum or highest value of in set of number or items. **Min** the minimum or lowest value of in set of number or items.
+
+here is the equation for both $$\text{Max} = \max\{x_{1}, x_{2}, \ldots, x_{n}\}$$ $$\text{Min} = \min\{x_{1}, x_{2}, \ldots, x_{n}\}$$
+
+::: {.panel-tabset group="language"}
+#### R
+
+Code for calculating maximum in R
+
+```{r}
+max(x)
+```
+
+#### Python
+
+Code for calculating maximum in python
+
+```{python}
+max(x)
+```
+:::
+
+::: {.panel-tabset group="language"}
+#### R
+
+Code for calculating minimum in R
+
+```{r}
+min(x)
+```
+
+#### Python
+
+Code for calculating minimum in python
+
+```{python}
+min(x)
+```
+:::
+
+## Range
+
+The range is the difference between the maximum and minimum values in a set of numbers. It is a measure of the spread of the data, and is calculated as follows:
+
+$$\text{Range} = \max\{x_{1}, x_{2}, \ldots, x_{n}\} - \min\{x_{1}, x_{2}\ldots, x_{n}\}$$
+
+::: {.panel-tabset group="language"}
+#### R
+
+Code for calculating range in R
+
+```{r}
+range(x)
+```
+
+#### Python
+
+Code for calculating range in python
+
+```{python}
+max(x)-min(x)
+```
+:::
+
+## Quantile
+
+The quantile of a dataset is the value below which a given percentage of observations in the data fall. The formula for the (p)-th quantile is given by:
+
+$$
+Q_p = \left\{
+\begin{array}{ll}
+x_{(n+1)p} & \text{if } (n+1)p \text{ is an integer} \\
+x_{\lfloor (n+1)p \rfloor} + \left((n+1)p - \lfloor (n+1)p \rfloor\right) \left(x_{\lceil (n+1)p \rceil} - x_{\lfloor (n+1)p \rfloor}\right) & \text{otherwise}
+\end{array}
+\right.
+$$
+
+where (x\_{(k)}) denotes the (k)-th ordered value in the dataset, $n$ is the number of observations, and $p$ is the desired percentile as a decimal (e.g., 0.25 for the 25th percentile).
+
+::: {.panel-tabset group="language"}
+#### R
+
+Code for Quantile in R
+
+```{r}
+#### 3rd Quantile
+quantile(x,0.75)
+
+#### 1st Quantile
+quantile(x,0.75)
+```
+
+#### Python
+
+Code for Quantile in Python
+
+```{python}
+
+import numpy as np
+#### 3rd Quantile
+np.quantile(x,0.75)
+
+#### 1st Quantile
+np.quantile(x,0.25)
+
+```
+:::
+
+## Skewness
+
+Skewness is a measure of the asymmetry of a distribution. If the value is positive, the distribution is skewed to the right, and if it is negative, the distribution is skewed to the left. The formula for skewness is given by:
+
+$$\text{Skewness} = \frac{\sum_{i=1}^n (x_i - \bar{x})^3}{(n-1) \sigma^3}$$
+
+where $\bar{x}$ is the mean, $n$ is the total number of observations, $\sigma$ is the standard deviation, and $x_i$ represents each individual observation in the dataset.
+
+::: {.panel-tabset group="language"}
+#### R
+
+```{r}
+library(DescTools)
+Skew(x)
+library(e1071)
+skewness(x)
+
+```
+
+#### Python
+
+```{python}
+from scipy.stats import skew
+skew(x)
+```
+:::
+
+## Kurtosis
+
+The kurtosis of a distribution is a measure of whether the data is heavy-tailed or light-tailed relative to a normal distribution. A normal distribution has a kurtosis of 0. The formula for kurtosis is given by:
+
+$$\text{Kurtosis} = \frac{\sum_{i=1}^n (x_i - \bar{x})^4}{(n-1) \sigma^4} - 3$$
+
+where $\bar{x}$ is the mean, $n$ is the total number of observations, $\sigma$ is the standard deviation, and $x_i$ represents each individual observation in the dataset.
+
+::: {.panel-tabset group="language"}
+#### R
+
+Kurtosis is the fourth central moment divided by the square of the variance
+
+```{r}
+Kurt(x)
+kurtosis(x)
+```
+
+#### Python
+
+```{python}
+from scipy.stats import kurtosis
+kurtosis(x)
+```
+:::
