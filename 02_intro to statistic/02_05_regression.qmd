@@ -1,0 +1,45 @@
+```{r}
+#| echo: false
+#| warning: false
+#| output: false
+library(reticulate)
+library(tidyverse)
+reticulate::use_condaenv('andat')
+```
+
+Data
+::: {.panel-tabset group = "language"}
+
+#### R
+```{r}
+df1 = c(1,2,3,4,4,5,7,10)
+df2 = c(0,0,0,1,1,1,1,1)
+```
+
+
+#### Python
+```{python}
+import statsmodels.api as sm
+df1 = [1,2,3,4,4,5,7,10]
+df2 = [0,0,0,1,1,1,1,1]
+```
+:::
+
+linear regresion
+::: {.panel-tabset group = "language"}
+
+#### R
+```{r}
+m1 = lm(df1~df2)
+summary(m1)
+```
+
+
+#### Python
+```{python}
+
+m1 = sm.OLS(df2,df1)
+res = m1.fit()
+print(res.summary())
+```
+:::

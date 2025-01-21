@@ -1,0 +1,75 @@
+```{r}
+#| echo: false
+#| warning: false
+#| output: false
+library(reticulate)
+library(tidyverse)
+reticulate::use_condaenv('andat')
+```
+
+::: {.panel-tabset group = "language"}
+
+#### R
+```{r}
+df1 = c(1,1,1,1,3,3,3,3)
+df2 = c(4,4,4,4,6,6,6,6)
+```
+
+
+#### Python
+```{python}
+df1 = [1,1,1,1,3,3,3,3]
+df2 = [4,4,4,4,6,6,6,6]
+```
+:::
+
+one sample t test
+
+::: {.panel-tabset group = "language"}
+#### R
+```{r}
+test = t.test(df1,
+                mu = 5,
+                alternative = c("two.sided"))
+print(test)
+# alternative = c("two.sided", "less", "greater")
+# You can specified for the test side
+```
+
+
+#### Python
+```{python}
+from scipy import stats
+print(stats.ttest_1samp(df1,popmean= 5))
+```
+
+:::
+
+
+two sample t test
+
+::: {.panel-tabset group = "language"}
+#### R
+```{r}
+test = t.test(df1,df2,
+                mu = 0, # difference in mean
+                paired = FALSE, # True if you want paired or dependent
+                var.equal = FALSE) # true if the sample has same variance
+# alternative = c("two.sided", "less", "greater")
+# You can specified for the test side
+print(test)
+```
+
+
+#### Python
+```{python}
+stats.ttest_ind(df1,df2,equal_var= False,alternative= "two-sided")
+# stats.ttest_rel for paired or dependen
+# less and greater in alternative for one sided test
+```
+
+```{r}
+?t.test()
+```
+
+:::
