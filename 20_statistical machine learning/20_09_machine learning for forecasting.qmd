@@ -1,0 +1,11 @@
+
+## Popular Forecasting Framework
+
+R
+fable
+forecast
+modeltime
+
+Python
+sktime
+nixtla
